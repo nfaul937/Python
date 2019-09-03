@@ -1,4 +1,39 @@
+'''
+File: blockProblem.py
+Program author(s): Nick Faul
+ClassName: Analysis of Algorithims
+Assignment: Low Hanging Fruit - Assignment #0
+Due date: 09/03/2019
+
+Brief description: 
+This program reads input from a text file name "blocksIn.txt" that is located in the working directory. The program reads each line from the file a interprets the command. Based on the command given, the program will use the corresponding from the assignment. Once a quit command is parsed from the input file, the program will then write the results to a file called "blocksOut.txt"
+'''
 import sys
+
+def initBlockList(numOfBlocks):
+    mdarray = [[None for i in range(numOfBlocks)] for j in range(numOfBlocks)]
+    for i in range(numOfBlocks):
+        mdarray[i][0] = i
+    return mdarray
+
+def findBlock(target, array):
+    for i in range(len(array)):
+        for j in range(len(array)):
+            if array[i][j] == target:
+                print("target found")
+                row = j
+                col = i
+    return row, col
+
+def returnBlocks(target, array):
+    row, col = findBlock(target, array)
+    i = len(array) - row - 1
+
+    for i in range(len(array)):
+        subblock = array[col][i]
+        
+
+    return subblock
 
 inputFile = open("blocksTestIn.txt", "r")
 
@@ -10,7 +45,11 @@ blocks = int(cmdline)
 print(type(blocks)) ###################################   TEMP
 print(blocks) #########################################   TEMP
 
+array = initBlockList(blocks)
 
+print(returnBlocks(2, array))
+
+'''
 while True:
     cmdline = (inputFile.readline()).rstrip()
 
@@ -39,7 +78,6 @@ while True:
 
     elif action == "pile" and subaction == "onto":
         print ("pile onto")
-    
-    
-        
+ '''   
+
         
