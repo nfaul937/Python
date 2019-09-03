@@ -27,27 +27,49 @@ def findBlock(target, array):
 
 def returnBlocks(target, array):
     row, col = findBlock(target, array)
-    i = len(array) - row - 1
+    limit = len(array) - (len(array) - row - 1)
+
+    for i  in range(limit,len(array)):
+        value = array[col][i]
+        if value == None:
+            continue
+        array[col][i] = None
+        array[value][0] = value
+    return array
+
+def moveOnto(src, dst, array):
+    returnBlocks(src,array)
+    returnBlocks(dst, array)
+    dstRow,dstCol = findBlock(dst,array)
+    srcRow,srcCol = findBlock(src,array)
+    value = array[srcCol][srcRow]
+    array[dstCol][dstRow + 1] = value
+    array[srcCol][srcRow] = None
+    return
+
+def moveOver(src, dst, array):
+    returnBlocks(src,array)
+    dstRow,dstCol = findBlock(dst,array)
+    srcRow,srcCol = findBlock(src,array)
+    value = array[srcCol][srcRow]
 
     for i in range(len(array)):
-        subblock = array[col][i]
-        
-
-    return subblock
-
+        if array[dstCol][i] == None:
+            array[dstCol][i] = value
+            array[srcCol][srcRow] = None
+            break
+    return
+    
 inputFile = open("blocksTestIn.txt", "r")
 
 #Read line from inout file and strip white space/ new line characters
 cmdline = (inputFile.readline()).rstrip()
 
 #Set total number on blocks in problem and cast type to integer.
-blocks = int(cmdline)
-print(type(blocks)) ###################################   TEMP
-print(blocks) #########################################   TEMP
+numOfBlocks = int(cmdline)
 
-array = initBlockList(blocks)
-
-print(returnBlocks(2, array))
+#Initialize the array with requireed number of blocks
+array = initBlockList(numOfBlocks)
 
 '''
 while True:

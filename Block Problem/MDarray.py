@@ -11,6 +11,9 @@ def findBlock(target, array):
                 print("target found")
                 row = j
                 col = i
+                break
+        if array[i][j] == target:
+                break
     return row, col
 
 def returnBlocks(target, array):
@@ -25,6 +28,28 @@ def returnBlocks(target, array):
         array[value][0] = value
     return mdarray
     
+def moveOnto(src, dst, array):
+    returnBlocks(src,array)
+    returnBlocks(dst, array)
+    dstRow,dstCol = findBlock(dst,array)
+    srcRow,srcCol = findBlock(src,array)
+    value = array[srcCol][srcRow]
+    array[dstCol][dstRow + 1] = value
+    array[srcCol][srcRow] = None
+    return
+
+def moveOver(src, dst, array):
+    returnBlocks(src,array)
+    dstRow,dstCol = findBlock(dst,array)
+    srcRow,srcCol = findBlock(src,array)
+    value = array[srcCol][srcRow]
+
+    for i in range(len(array)):
+        if array[dstCol][i] == None:
+            array[dstCol][i] = value
+            array[srcCol][srcRow] = None
+            break
+    return
 mdarray = initBlockList(10)
 
 mdarray[1][1] = 9
@@ -41,8 +66,13 @@ mdarray[8][0] = None
 mdarray[9][0] = None
 
 print(mdarray)
-print(findBlock(9, mdarray))
 returnBlocks(5, mdarray)
+print(findBlock(0, mdarray))
+moveOnto(3, 0, mdarray)
+print(mdarray)
+returnBlocks(0, mdarray)
+moveOnto(5, 3, mdarray)
+print()
 print(mdarray)
 
 
