@@ -101,19 +101,17 @@ mdarray[7][0] = None
 mdarray[8][0] = None
 mdarray[9][0] = None
 
-print(mdarray)
-#returnBlocks(5, mdarray)
-print(findBlock(0, mdarray))
-#moveOnto(3, 0, mdarray)
-#print(mdarray)
-#returnBlocks(0, mdarray)
-moveOver(5, 3, mdarray)
-#print(findBlock(2,mdarray))
-#print(findBlock(5,mdarray))
-#pileOnto(9 , 5, mdarray)
 
+returnBlocks(5, mdarray)
+
+moveOnto(3, 0, mdarray)
+returnBlocks(0, mdarray)
+moveOnto(5, 3, mdarray)
 print()
+print("The following array should match the array form the test output")
 print(mdarray)
+
+
 
 
 
