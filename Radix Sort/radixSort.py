@@ -1,3 +1,6 @@
+import time
+import random
+
 def RadCountSort (arr,d):
     #Initialize counting array
     count = [0 for i in range(0,10)]
@@ -7,7 +10,7 @@ def RadCountSort (arr,d):
     for j in range(0, len(arr)):
         count[int(arr[j][d])] = count[int(arr[j][d])] + 1
 
-    for i in range(1,int(len(arr))+1):
+    for i in range(1,10):
         count[i] = count[i] + count[i-1]
         #print(count)
 
@@ -28,8 +31,6 @@ def radixSort (arr, d):
     
     return sortedArray
 
-
-
-array = [3223,1634,2345,4962,5371,6162,7803,8270,9105]
-ans = radixSort(array, 4)
+array = [random.randint(10,99) for j in range(20)]
+ans = radixSort(array, 2)
 print(ans)
