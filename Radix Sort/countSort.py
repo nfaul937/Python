@@ -19,9 +19,9 @@ def countSort (arr):
     
     return outArray
 
-array = arr =  [random.randint(50000,10000000) for j in range(1000000)]
+array =  [random.randint(50000,10000000) for j in range(1000000)]
 start = time.time()
 ans = countSort(array)
 end = time.time()
-print(len(arr))
+print(len(array))
 print(end - start)
