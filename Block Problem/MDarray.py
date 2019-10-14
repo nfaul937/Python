@@ -8,7 +8,6 @@ def findBlock(target, array):
     for i in range(len(array)):
         for j in range(len(array)):
             if array[i][j] == target:
-                print("target found")
                 row = j
                 col = i
                 break
@@ -20,7 +19,7 @@ def returnBlocks(target, array):
     row, col = findBlock(target, array)
     limit = len(array) - (len(array) - row - 1)
 
-    for i  in range(limit,len(array)):
+    for i in range(limit,len(array)):
         value = array[col][i]
         if value == None:
             continue
@@ -40,8 +39,8 @@ def moveOnto(src, dst, array):
 
 def moveOver(src, dst, array):
     returnBlocks(src,array)
-    dstRow,dstCol = findBlock(dst,array)
-    srcRow,srcCol = findBlock(src,array)
+    dstRow, dstCol = findBlock(dst,array)
+    srcRow, srcCol = findBlock(src,array)
     value = array[srcCol][srcRow]
 
     for i in range(len(array)):
@@ -50,6 +49,43 @@ def moveOver(src, dst, array):
             array[srcCol][srcRow] = None
             break
     return
+
+def pileOnto(src, dst, array):
+    returnBlocks(dst, array)
+    dstRow, dstCol = findBlock(dst, array)
+    srcRow, srcCol = findBlock(src, array)
+
+    for i in range(srcRow,len(array)):
+        if array[srcCol][i] == None:
+            break
+        value = array[srcCol][i]
+        print(value)
+        for j in range(len(array)):
+            if array[dstCol][j] == None:
+                array[dstCol][j] = value
+                array[srcCol][i] = None
+                break
+    return
+
+def pileOver(src, dst, array):
+    dstRow, dstCol = findBlock(dst, array)
+    srcRow, srcCol = findBlock(src, array)
+
+    for i in range(srcRow,len(array)):
+        if array[srcCol][i] == None:
+            break
+        value = array[srcCol][i]
+        
+        for j in range(len(array)):
+            if array[dstCol][j] == None:
+                array[dstCol][j] = value
+                array[srcCol][i] = None
+                break
+    return
+
+
+        
+
 mdarray = initBlockList(10)
 
 mdarray[1][1] = 9
