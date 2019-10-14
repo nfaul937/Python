@@ -20,6 +20,7 @@ def countSort (arr):
 
     print(outArray)
 
-    
+
 array = [3,6,3,8,3,1,8,2,10]
+print(len(array))
 countSort(array)
