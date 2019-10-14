@@ -25,11 +25,11 @@ def radixSort (arr, d):
         print(i)
         sortedArray = RadCountSort(strArr,i)
         strArr = [ str(_) for _ in sortedArray ]
-        
-    return RadSortedArray
+    
+    return sortedArray
 
 
 
-array = [22,63,34,96,37,16,80,27,10]
-ans = radixSort(array, 2)
+array = [3223,1634,2345,4962,5371,6162,7803,8270,9105]
+ans = radixSort(array, 4)
 print(ans)
