@@ -1,3 +1,6 @@
+import time
+import random
+
 def countSort (arr):
     #Initialize counting array
     count = [0 for i in range(0,max(arr)+1)]
@@ -16,6 +19,9 @@ def countSort (arr):
     
     return outArray
 
-array = [3,6,3,8,3,1,8,2,10]
+array = arr =  [random.randint(50000,10000000) for j in range(1000000)]
+start = time.time()
 ans = countSort(array)
-print(ans)
+end = time.time()
+print(len(arr))
+print(end - start)
