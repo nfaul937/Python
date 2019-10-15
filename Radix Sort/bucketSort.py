@@ -7,7 +7,7 @@ def bucketSort(arr):
     size = largest/length
  
     buckets = [[] for _ in range(length)]
-    
+
     for i in range(length):
         j = int(arr[i]/size)
         if j != length:
@@ -34,8 +34,8 @@ def iSort(arr):
         arr[j + 1] = temp
  
  
-arr = [random.randint(1000,9999) for j in range(10)]
-sorted_list = bucketSort(arr)
-
-print('Sorted list: ', end='')
-print(sorted_list)
+arr = [random.randint(100000,999999) for j in range(600000)]
+start = time.time()
+bucketSort(arr)
+end = time.time()
+print(end - start)

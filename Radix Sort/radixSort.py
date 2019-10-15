@@ -29,6 +29,8 @@ def radixSort (arr, d):
         strArr = [ str(_) for _ in sortedArray ]
     return sortedArray
 
-array = [random.randint(1000,9999) for j in range(10)]
-ans = radixSort(array, 4)
-print(ans)
+array =  [random.randint(100000,999999) for j in range(100000)]
+start = time.time()
+ans = radixSort(array,6)
+end = time.time()
+print(end - start)
