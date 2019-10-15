@@ -24,10 +24,9 @@ def radixSort (arr, d):
     strArr = [ str(_) for _ in arr ]
 
     for i in range(d-1, -1, -1):
-        print(i)
+
         sortedArray = RadCountSort(strArr,i)
         strArr = [ str(_) for _ in sortedArray ]
-    
     return sortedArray
 
 array = [random.randint(1000,9999) for j in range(10)]
