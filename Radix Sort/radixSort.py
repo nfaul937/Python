@@ -31,6 +31,6 @@ def radixSort (arr, d):
     
     return sortedArray
 
-array = [random.randint(10,99) for j in range(20)]
-ans = radixSort(array, 2)
+array = [random.randint(1000,9999) for j in range(10)]
+ans = radixSort(array, 4)
 print(ans)
