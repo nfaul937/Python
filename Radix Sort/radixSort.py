@@ -12,7 +12,6 @@ def RadCountSort (arr,d):
 
     for i in range(1,10):
         count[i] = count[i] + count[i-1]
-        #print(count)
 
     for j in range(len(arr)-1, -1,-1):
         outArray[count[int(arr[j][d])] -1 ] = int(arr[j])
