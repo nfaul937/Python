@@ -29,7 +29,8 @@ def bucketSort(arr):
 
     return result
 
-arr = [random.uniform(0,1) for j in range(10)]
-
-ans = bucketSort(arr)
-print(ans)
+arr = [random.uniform(0,1) for j in range(1000000)]
+start = time.time()
+bucketSort(arr)
+end = time.time()
+print(end - start)
