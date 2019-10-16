@@ -17,7 +17,7 @@ def bucketSort(arr):
     buckets = [[] for _ in range(n)]
 
     for i in range(0,n):
-       buckets[math.floor(n * arr[i])].insert(0,arr[i])
+        buckets[int(math.floor(n * arr[i]))].insert(0,arr[i])
     
     for i in range(0,n):
         iSort(buckets[i])
