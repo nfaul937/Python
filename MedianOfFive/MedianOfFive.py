@@ -33,7 +33,7 @@ def medianOfFive(arr):
     return medians
 
 
-array =  [random.randint(1,100) for j in range(27)]
+array =  [random.randint(1,100) for j in range(7)]
 
 start = time.time()
 
