@@ -36,11 +36,11 @@ while running:
         if (event.type == pygame.QUIT):
             running = False
     #update
-    all_sprites.Update()
+    all_sprites.update()
     
     #draw/render
     screen.fill((BLACK))
-    all_sprites.Draw(screen)
+    all_sprites.draw(screen)
 
     #after drawing flip the display
     pygame.display.flip()
