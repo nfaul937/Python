@@ -1,13 +1,20 @@
 import pygame as pg
+import os
 from settings import *
+
+game_folder = os.path.dirname(__file__)
+img_folder = os.path.join(game_folder, "img")
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
-        self.image = pg.Surface((TILESIZE, TILESIZE))
-        self.image.fill(YELLOW)
+        
+        self.image = pg.image.load(os.path.join(img_folder, "player.png")).convert()
+        
+        #self.image = pg.Surface((TILESIZE, TILESIZE))
+        #self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
         self.vx, self.vy = 0,0
         self.x = x * TILESIZE
@@ -63,8 +70,11 @@ class Wall(pg.sprite.Sprite):
         self.groups = game.all_sprites, game.walls
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
-        self.image = pg.Surface((TILESIZE, TILESIZE))
-        self.image.fill(GREEN)
+
+        self.image = pg.image.load(os.path.join(img_folder, "metal.png")).convert()
+        self.image.set_colorkey(BLACK)
+        #self.image = pg.Surface((TILESIZE, TILESIZE))
+        #self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
