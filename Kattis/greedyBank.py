@@ -1,22 +1,27 @@
-import numbers
+import heapq
 
-num, tlimit = input().split()
+lineCount, timeLimit = input().split()
+timeLimit = int(timeLimit)
+lineCount = int(lineCount)
 
-def sortThird(val): 
-    return val[2] 
+line = []
+priorityline = []
 
-a = [[None for i in range(3)] for j in range(int(num))]
-minDeposit = [None] * int(num)
 sum = 0
+for i in range(lineCount):
+    deposit, maxWait = input().split()
+    line.append((int(maxWait), int(deposit)))
 
-for i in range(0,int(num)):
-    deposit , maxWait= input().split()
-    a[i][0] = deposit
-    a[i][1] = maxWait
-    if int(maxWait) == 0:
-        a[i][2] = int(deposit)
-    else:
-        a[i][2] = int(deposit)/int(maxWait)
+line.sort(reverse=True)
+print(line)
 
-a.sort(key = sortThird, reverse = True)
+j = 0 
+for i in range(timeLimit + 1):
+    while j < lineCount and line[j][0] >= timeLimit:
+        heapq.heappush(priorityline, -line[j][1])
+        j+=1
+    if priorityline:
+        sum -= heapq.heappop(priorityline)
+    timeLimit -= 1
 
+print(sum)    
