@@ -10,6 +10,8 @@ class Node:
 node1 = Node()
 node2 = Node('one','two', 'three')
 
+
+print("test")
 print(node1.left)
 print(node1.right)
 print(node1.parent)
