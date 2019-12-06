@@ -22,7 +22,6 @@ queens = int(input())
 board = [[None for i in range(queens)] for j in range(queens)]
 
 locations = []
-
 makeBoard(queens)
 '''
 for i in range(queens):
@@ -34,7 +33,6 @@ for i in range(queens):
 mod = queens % 6
 
 if mod == 2:
-    print("mod 2")
     for i in range(2, queens + 2, 2):
         locations.append(i)
     for i in range(1 , queens , 2):
@@ -44,7 +42,6 @@ if mod == 2:
     locations.append(5)
 
 elif mod == 3:
-    print("mod 3")
     for i in range(2, queens + 1, 2): 
         locations.append(i)
     for i in range(1 , queens + 1, 2):
@@ -57,8 +54,6 @@ elif mod == 3:
     locations.append(3)
     
 else:
-    print("else")
-
     for i in range(2, queens + 2, 2):
         locations.append(i)
     for i in range(1 , queens , 2):
