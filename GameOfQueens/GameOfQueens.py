@@ -38,7 +38,6 @@ queens = int(input())
 board = [[None for i in range(queens)] for j in range(queens)]
 
 locations = []
-#makeBoard(queens)
 
 #Take the board values as input and place them in the board array
 for i in range(queens):
