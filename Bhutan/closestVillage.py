@@ -90,7 +90,9 @@ for i in range(0,numOfCity):
 
 xSorted = sorted(cities, key=lambda x: x[0])
 ySorted = sorted(cities, key=lambda x: x[1])
-p1, p2, mi = closest_pair(xSorted, ySorted)  # Recursive D&C function
-print(mi)
+
+p1, p2, dist = closest_pair(xSorted, ySorted)  # Recursive D&C function
+
+print(dist)
 print(p1)
 print(p2)
