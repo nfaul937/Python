@@ -25,11 +25,21 @@ def medianOfFive(arr):
     for i in range(0,len(groups)):
         iSort(groups[i])
     
+    print(groups)
+
     medians = []
-    print (groups)
+    
     for i in range(0,len(groups)):
-        medianindex = math.ceil(int(len(groups[i])/2))
+        
+        #Check to see if the number of elements in the group is even
+        if (int(len(arr)) % 2 == 0)):
+            medianindex = ((int(len(arr)))/ 2) -1
+
+        else:
+            medianindex = math.ceil(int(len(groups[i])/2))
+        
         medians.append(groups[i][int(medianindex)])
+
     return medians
 
 
