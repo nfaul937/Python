@@ -10,6 +10,8 @@ This program reads in a number of queens and uses it as the dimensions for the c
 Once the inputs has been received the program will use patterns to determine the maximum number of queens that can fit on a board.
 The program will total the board values that are "under" the queens on the board and return it as output. 
 '''
+
+import time
 #Swaps values at index i and j in a given array
 def swap(arr, i, j):
 		arr[i], arr[j] = arr[j], arr[i]
@@ -38,14 +40,15 @@ queens = int(input())
 board = [[None for i in range(queens)] for j in range(queens)]
 
 locations = []
-#makeBoard(queens)
 
 #Take the board values as input and place them in the board array
 for i in range(queens):
     line = input().split()
     for j in range(queens):
         board[j][i] = line[j]
-
+'''
+makeBoard(queens)
+'''
 mod = queens % 6
 
 if mod == 2:
@@ -70,9 +73,14 @@ elif mod == 3:
     locations.append(3)
 
 else:
-    for i in range(2, queens + 2, 2):
+    for i in range(2, queens , 2):
         locations.append(i)
-    for i in range(1 , queens , 2):
+    for i in range(1 , queens + 1 , 2):
         locations.append(i)
 
+start = time.time()
 print(total(board, locations))
+end = time.time()
+
+
+

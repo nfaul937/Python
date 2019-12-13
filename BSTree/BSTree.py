@@ -58,5 +58,7 @@ for i in range(treeNum):
         insert(r,Node(values[j]))
 
     height[i] = getHeight(r)
-    
-print(height)
+
+with open('heights.csv', 'w') as f:
+    for item in height:
+        f.write("%s\n" % item)
