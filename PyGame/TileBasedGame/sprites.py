@@ -6,6 +6,7 @@ game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, "img")
 
 class Player(pg.sprite.Sprite):
+    
     def __init__(self, game, x, y):
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
@@ -19,6 +20,7 @@ class Player(pg.sprite.Sprite):
         self.vx, self.vy = 0,0
         self.x = x * TILESIZE
         self.y = y * TILESIZE
+    
     def get_keys(self):
         self.vx, self.vy = 0,0
         keys = pg.key.get_pressed()
@@ -63,9 +65,8 @@ class Player(pg.sprite.Sprite):
         self.rect.y = self.y
         self.collide_with_walls('y')
         
-
-
 class Wall(pg.sprite.Sprite):
+
     def __init__(self, game, x, y):
         self.groups = game.all_sprites, game.walls
         pg.sprite.Sprite.__init__(self, self.groups)

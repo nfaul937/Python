@@ -9,6 +9,7 @@ from settings import *
 from sprites import *
 
 class Game:
+
     def __init__(self):
         pg.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -35,6 +36,7 @@ class Game:
                     Wall(self, col, row)
                 if tile == 'P':
                     self.player = Player(self, col, row)
+    
     def run(self):
         # game loop - set self.playing = False to end the game
         self.playing = True
